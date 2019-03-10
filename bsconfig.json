@@ -1,0 +1,23 @@
+{
+  "name": "rela",
+  "version": "0.1.0",
+  "sources": {
+    "dir" : "src",
+    "subdirs" : true
+  },
+  "suffix": ".bs.js",
+  "bs-dependencies": [
+      // add your bs-dependencies here 
+  ],
+  "warnings": {
+    "error" : "+101"
+  },
+  "refmt": 3,
+  "entries": [{
+    "backend": "native",
+    "main-module": "Index"
+  },{
+    "backend": "bytecode",
+    "main-module": "Index"
+  }]
+}
