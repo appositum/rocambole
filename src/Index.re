@@ -14,18 +14,18 @@ type term =
 let explode = (str : string) => {
   let rec exp(i, xs) = {
     if (i < 0) { xs } else { exp(i-1, [str.[i], ...xs]) }
-  };
+  }
   exp(String.length(str) - 1, [])
-};
+}
 
 let implode = (xs : list(char)) => {
   xs
   |> List.map(String.make(1))
-  |> String.concat("");
-};
+  |> String.concat("")
+}
 
 let alphabet = {
-  let chars = explode("abcdefghijklmnopqrstuvwxyz");
+  let chars = explode("abcdefghijklmnopqrstuvwxyz")
   List.append(chars, List.map(Char.uppercase, chars))
 }
 
@@ -42,5 +42,5 @@ let rec tokenize = (text : list(char)) => {
     } else {
       tokenize(rest)
     }
-  };
-};
+  }
+}
