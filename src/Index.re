@@ -53,10 +53,35 @@ let rec tokenize = (text : list(char)) => {
   | ['.', ...rest] => [Dot, ...tokenize(rest)]
   | ['\\', ...rest] => [Lambda, ...tokenize(rest)]
   | [c, ...rest] =>
-    if (List.exists(x => x == c, alphabet)) {
+    if (List.exists(x => x == c, alphabet))
       [Var(c), ...tokenize(rest)]
-    } else {
+    else
       tokenize(rest)
-    }
   }
+}
+
+exception ParseError(string)
+
+let rec parse_single = (tokens : list(token)) => {
+  switch(tokens) {
+  | [Var(name), ...rest] => (TermVar(name), rest)
+  | [Lambda, Var(arg), Dot, ...xs] =>
+    let (body, rest) = parse_single(xs);
+    (TermLambda(arg, body), rest)
+  | [LParen, ...rest] =>
+    let (func, after_func) = parse_single(rest)
+    let (value, after_value) = parse_single(after_func)
+
+    switch(after_value) {
+    | [RParen, ...rest] => (TermApp(func, value), rest)
+    | _ => raise(ParseError("Expected ')'"))
+    }
+
+  | _ => raise(ParseError("Bad parse"))
+  }
+}
+
+let parse = (tokens : list(token)) => {
+  let (result, _) = parse_single(tokens)
+  result
 }
