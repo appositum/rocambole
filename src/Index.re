@@ -6,6 +6,22 @@ type token =
   | Var(char)
   | EOF
 
+let pretty_token = fun
+  | LParen => '('
+  | RParen => ')'
+  | Lambda => '\\'
+  | Dot => '.'
+  | Var(c) => c
+  | EOF => ' '
+
+let token_to_string = fun
+  | LParen => "LParen"
+  | RParen => "RParen"
+  | Lambda => "Lambda"
+  | Dot => "Dot"
+  | Var(c) => "Var(" ++ String.make(1, c) ++ ")"
+  | EOF => "<EOF>"
+
 type term =
   | TermVar(char)
   | TermLambda(char, term)
