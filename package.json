@@ -12,7 +12,7 @@
     "BuckleScript"
   ],
   "author": "Eddie",
-  "license": "MIT",
+  "license": "Apache 2.0",
   "devDependencies": {
     "bs-platform": "^4.0.18",
     "bsb-native": "^4.0.7000"
