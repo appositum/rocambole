@@ -7,9 +7,9 @@ type token =
   | EOF
 
 type term =
-  | VarT(char)
-  | LambdaT(char, term)
-  | AppT(term, term)
+  | TermVar(char)
+  | TermLambda(char, term)
+  | TermApp(term, term)
 
 let explode = (str : string) => {
   let rec exp(i, xs) = {
