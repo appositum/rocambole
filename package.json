@@ -1,21 +1,7 @@
 {
-  "name": "rela",
+  "name": "rocambole",
   "version": "0.1.0",
-  "scripts": {
-    "clean": "bsb -clean-world",
-    "start": "./lib/bs/native/index.native",
-    "build": "bsb -make-world -backend native",
-    "build:js": "bsb -make-world -backend js",
-    "build:bytecode": "bsb -make-world -backend bytecode",
-    "watch": "bsb -make-world -w"
-  },
-  "keywords": [
-    "BuckleScript"
-  ],
   "author": "Eddie",
   "license": "Apache-2.0",
-  "devDependencies": {
-    "bs-platform": "^4.0.18",
-    "bsb-native": "^4.0.7000"
-  }
+  "esy": { "build": "dune -p #{self.name}" }
 }
