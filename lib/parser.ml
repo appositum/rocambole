@@ -19,7 +19,7 @@ let token_to_string = function
   | RParen -> "RParen"
   | Lambda -> "Lambda"
   | Dot -> "Dot"
-  | Var c -> "Var"
+  | Var _ -> "Var"
   | EOF -> "<EOF>"
 
 type term =
@@ -27,15 +27,14 @@ type term =
   | TermLambda of char * term
   | TermApp of term * term
 
-let explode s = List.init (String.length s) (String.get s)
+let unpack s = List.init (String.length s) (String.get s)
 
 let is_alpha = function
   | 'a' .. 'z'
   | 'A' .. 'Z' -> true
   | _ -> false
 
-let rec tokenize (text : char list) =
-  match text with
+let rec tokenize = function
   | [] -> [EOF]
   | '('::xs -> LParen :: tokenize xs
   | ')'::xs -> RParen :: tokenize xs
