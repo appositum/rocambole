@@ -3,5 +3,17 @@
   "version": "0.1.0",
   "author": "Eddie",
   "license": "Apache-2.0",
-  "esy": { "build": "dune -p #{self.name}" }
+  "esy": {
+    "build": "dune build -p #{self.name}",
+    "release": { "bin": "rocambole" }
+  },
+  "scripts": {
+    "repl": "dune utop",
+    "run": "esy x rocambole"
+  },
+  "dependencies": {
+    "@opam/dune": "1.8.2",
+    "@opam/utop": "2.3.0",
+    "ocaml": "^4.7.1004"
+  }
 }
