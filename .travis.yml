@@ -1,0 +1,15 @@
+os: osx
+language: ocaml
+
+before_install:
+  brew install yarn
+
+install:
+  yarn global add esy
+  esy install
+
+script:
+  esy build
+
+notifications:
+  email: false
