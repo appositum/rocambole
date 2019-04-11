@@ -1,0 +1,4 @@
+(library
+  (name rocambole)
+  (public_name rocambole)
+  (libraries angstrom))
