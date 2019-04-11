@@ -9,6 +9,7 @@
   },
   "scripts": { "repl": "esy build dune utop", "run": "esy x rocambole" },
   "dependencies": {
+    "@opam/angstrom": "0.11.1",
     "@opam/dune": "1.8.2",
     "@opam/utop": "2.3.0",
     "ocaml": "^4.7.1004"
