@@ -10,6 +10,7 @@ bug-reports: "https://github.com/appositum/rocambole/issues"
 depends: [
   "ocaml"
   "dune" {>= "3.10"}
+  "angstrom"
   "odoc" {with-doc}
 ]
 build: [
